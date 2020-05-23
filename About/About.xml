@@ -1,0 +1,42 @@
+<ModMetaData>
+	<name>SpiceMelange</name>
+	<author>Between The Borders</author>
+    <packageId>BetweenTheBorders.SpiceMelange</packageId>
+	<supportedVersions>
+		<li>1.1</li>
+	</supportedVersions>
+	<description>
+Spice blows, harvesting, and refining.\n\n
+
+This is a testing release, but should be playable as-is. There has been no balance pass, and there is no promise Spice won't be too common or too rare.\n\n
+
+Current benefits include psychic power bonues at higher levels, and until I figure out how much is reliant on Royalty, it is listed as a dependency.\n\n
+
+Spice blows occur randomly, and the pre-spice mass must be dried either in an autoclave (same tech and image as the vanilla drug lab) or in a temperature of above 25C. Effects of withdrawal are not well tailored. It will take many doses to get to higher status effects.\n\n
+
+Current effects include increased stats, psychic powers, immunity to common diseases, and cosmetic bluing of the eyes. These kick in at different levels of severity.\n\n
+
+There's a lot to be done, but I wanted feedback on mechanisms and balance. It's been a trip figuring out things so far, and hopefully I figure out HugsLib to allow for user configuration, but I wanted to get feedback on systems ASAP.\n\n
+\n\n
+
+Thanks for all the support!\n\n
+
+All RimWorld mod sources uploaded to https://github.com/faragher/ (but it may take a while after release)\n\n
+
+
+Dune and all its related IPs are, of course, property of Frank Herbert, his descendants and licensees. No infringement intended, etc.
+
+
+</description>
+	<url>https://steamcommunity.com/id/Between The Borders/myworkshopfiles/?appid=294100</url>
+		<modDependencies>
+	    <li>
+	      <packageId>Ludeon.Rimworld.Royalty</packageId>
+	      <displayName>Royalty DLC</displayName>
+	      <downloadUrl>https://store.steampowered.com/app/1149640/RimWorld__Royalty/</downloadUrl>
+	      <steamWorkshopUrl>https://store.steampowered.com/app/1149640/RimWorld__Royalty/</steamWorkshopUrl>
+	    </li>
+	</modDependencies>
+</ModMetaData>
+
+

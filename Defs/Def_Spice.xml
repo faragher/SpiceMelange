@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugBase">
+    <defName>SpiceMelange</defName>
+    <label>spice melange</label>
+    <description>A conscousness expanding drug from the planet Arrakis.</description>
+    <descriptionHyperlinks>
+      <HediffDef>SpiceMelangeHigh</HediffDef>
+      <HediffDef>SpiceMelangeAddiction</HediffDef>
+      <HediffDef>ChemicalDamageModerate</HediffDef>
+      <HediffDef>SpiceMelangeTolerance</HediffDef>
+        <HediffDef>EyesOfIbad</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Resource/Spice/spice</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <stackLimit>75</stackLimit>
+    <statBases>
+      <WorkToMake>600</WorkToMake>
+      <MarketValue>500</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <foodType>Processed, Fluid</foodType>
+      <baseIngestTicks>90</baseIngestTicks>
+      <ingestSound>Ingest_Pill</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <ingestCommandString>Consume {0}</ingestCommandString>
+      <ingestReportString>Conuming {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <chairSearchRadius>0</chairSearchRadius>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>SpiceMelangeHigh</hediffDef>
+          <severity>0.1</severity>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>SpiceMelangeTolerance</hediffDef>
+          <severity>0.016</severity>
+          <divideByBodySize>true</divideByBodySize>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+    </recipeMaker>
+    <costList>
+      <PreSpice>1</PreSpice>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>SpiceMelange</chemical>
+        <addictiveness>0.9</addictiveness>
+        <existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+        <needLevelOffset>1</needLevelOffset>
+        <isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+        <listOrder>200</listOrder>
+        <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+        <largeOverdoseChance>0.01</largeOverdoseChance>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef ParentName="DiseaseBase">
+    <defName>EyesOfIbad</defName>
+    <label>eyes of Ibad</label>
+    <description>The blue within blue eyes of Fremen or heavy users of the Spice Melange.</description>
+  </HediffDef>
+  
+  <HediffDef>
+    <defName>SpiceMelangeHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>consumed the Spice Melange</label>
+    <labelNoun>Spice use</labelNoun>
+    <description>The Spice is expanding consciousness.</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.05</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+        <li>
+          <label>buzzed</label>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.10</offset>
+              </li>
+            </capMods>
+        </li>
+        <li>
+          <minSeverity>0.25</minSeverity>
+          <label>enhanced</label>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.25</offset>
+              </li>
+            </capMods>
+            <statOffsets>
+                <PsychicSensitivity>0.05</PsychicSensitivity>
+                <PsychicEntropyRecoveryRate>0.1</PsychicEntropyRecoveryRate>
+            </statOffsets>
+
+        </li>
+        <li>
+          <minSeverity>0.5</minSeverity>
+          <label>addicted</label>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.5</offset>
+              </li>
+             <li>
+                <capacity>Moving</capacity>
+                <offset>0.05</offset>
+              </li>
+              <li>
+                <capacity>Sight</capacity>
+                <offset>0.05</offset>
+              </li>
+              <li>
+                <capacity>BloodFiltration</capacity>
+                <offset>.25</offset>
+              </li>
+               <li>
+                <capacity>Metabolism</capacity>
+                <offset>0.05</offset>
+              </li>
+              <li>
+                <capacity>Breathing</capacity>
+                <offset>0.05</offset>
+              </li>
+            </capMods>
+            <statOffsets>
+                <PsychicSensitivity>0.25</PsychicSensitivity>
+                <PsychicEntropyRecoveryRate>1.0</PsychicEntropyRecoveryRate>
+            </statOffsets>
+
+          <makeImmuneTo>
+            <li>Malaria</li>
+            <li>SleepingSickness</li>
+            <li>Plague</li>
+          </makeImmuneTo>
+        </li>
+        <li>
+          <minSeverity>0.75</minSeverity>
+          <label>Ibad</label>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>1.5</offset>
+              </li>
+             <li>
+                <capacity>Moving</capacity>
+                <offset>0.10</offset>
+              </li>
+              <li>
+                <capacity>Sight</capacity>
+                <offset>0.1</offset>
+              </li>
+              <li>
+                <capacity>BloodFiltration</capacity>
+                <offset>1.0</offset>
+              </li>
+              <li>
+                <capacity>BloodPumping</capacity>
+                <offset>0.05</offset>
+              </li>
+               <li>
+                <capacity>Metabolism</capacity>
+                <offset>0.10</offset>
+              </li>
+              <li>
+                <capacity>Breathing</capacity>
+                <offset>0.10</offset>
+              </li>
+            </capMods>
+            <statOffsets>
+                <PsychicSensitivity>0.5</PsychicSensitivity>
+                <PsychicEntropyRecoveryRate>2.0</PsychicEntropyRecoveryRate>
+            </statOffsets>
+
+          <makeImmuneTo>
+            <li>Malaria</li>
+            <li>SleepingSickness</li>
+            <li>Plague</li>
+          </makeImmuneTo>
+        </li>
+      </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>SpiceMelangeTolerance</defName>
+    <label>spice melange tolerance</label>
+    <description>Long-term usage of spice alters the body's composition and metabolism, leading to permanent changes and dependence.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.001</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>SpiceMelange</chemical>
+      </li>
+    </comps>
+    <hediffGivers>
+      <li Class="HediffGiver_RandomDrugEffect">
+        <hediff>EyesOfIbad</hediff>
+        <minSeverity>0.60</minSeverity>
+        <baseMtbDays>.01</baseMtbDays>
+        <partsToAffect>
+          <li>Eye</li>
+        </partsToAffect>
+      </li>
+    </hediffGivers>
+  </HediffDef>
+
+
+
+  <ThoughtDef>
+    <defName>SpiceMelangeHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>SpiceMelangeHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>using the Spice</label>
+        <description>My consciousness is expanded by the most valuable substance in the verse.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ChemicalDef>
+    <defName>SpiceMelange</defName>
+    <label>spice melange</label>
+    <addictionHediff>SpiceMelangeAddiction</addictionHediff>
+    <toleranceHediff>SpiceMelangeTolerance</toleranceHediff>
+  </ChemicalDef>
+  
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_SpiceMelange</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>spice melange</label>
+    <description>The Spice is an addictive narcotic.</description>
+    <listPriority>45</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>SpiceMelangeAddiction</defName>
+    <label>spice melange addiction</label>
+    <description>A chemical addiction to the Spice Melange. Depending on addiction level, this may be a fatal withdrawal.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <causesNeed>Chemical_SpiceMelange</causesNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.04</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <painFactor>3</painFactor>
+        <restFallFactorOffset>0.3</restFallFactorOffset>
+        <hungerRateFactorOffset>0.5</hungerRateFactorOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.45</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.10</offset>
+          </li>
+          <li>
+            <capacity>Manipulation</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Wander_Sad</mentalState>
+            <mtbDays>7</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>SpiceMelangeAddiction</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>SpiceMelangeAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>spice melange withdrawal</label>
+        <description>The Spice must flow . . .</description>
+        <baseMoodEffect>-35</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+<ThingDef ParentName="BenchBase">
+    <defName>SpiceAutoclave</defName>
+    <label>spice autoclave</label>
+    <description>A system designed to speed the converion of pre-spice mass to crude spice.</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/TableDrugLab</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(3.5,1.5)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <castEdgeShadows>true</castEdgeShadows>
+    <staticSunShadowHeight>0.20</staticSunShadowHeight>
+    <costStuffCount>50</costStuffCount>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+    </stuffCategories>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <altitudeLayer>Building</altitudeLayer>
+    <fillPercent>0.5</fillPercent>
+    <useHitPoints>True</useHitPoints>
+    <statBases>
+      <WorkToBuild>3500</WorkToBuild>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <designationCategory>Production</designationCategory>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+    </building>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <researchPrerequisites>
+      <li>DrugProduction</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  
+</Defs>

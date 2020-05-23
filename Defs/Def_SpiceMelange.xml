@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef Name="PreSpice" ParentName="OrganicProductBase" >
+		<defName>PreSpice</defName>
+		<label>prespice</label>
+		<description>A pre-spice mass, with elevated temperature and time it will become the Spice Melange.</description>
+		<graphicData>
+		  <texPath>Resource/Spice/prespice</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<statBases>
+		  <Mass>0.15</Mass>
+		  <MaxHitPoints>20</MaxHitPoints>
+		  <DeteriorationRate>2</DeteriorationRate>
+		  <Flammability>0.7</Flammability>
+		  <MarketValue>7.0</MarketValue>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li Class="BTBSpiceMelange.CompProperties_SpiceDryer">
+				<DaystoDry>.25</DaystoDry>
+			</li>
+		</comps>
+        <thingCategories>
+             <li>Drugs</li>
+        </thingCategories>
+        <tradeTags>
+            <li>Drugs</li>
+        </tradeTags>
+	    </ThingDef>
+  
+  
+  
+  
+  </Defs>

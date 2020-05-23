@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<IncidentDef>
+		<defName>Incident_SpiceBlow</defName>
+		<label>spice blow</label>
+		<category>Misc</category>
+	    <targetTags>
+		<li>Map_PlayerHome</li>
+		</targetTags>
+		<workerClass>BTBSpiceMelange.IncidentWorker_SpiceBlow</workerClass>
+		<baseChance>2.0</baseChance>
+		<letterLabel>Spice Blow</letterLabel>
+		<letterText>An underground pre-spice mass has burst, bringing more spice to the surface.</letterText>
+		<letterDef>PositiveEvent</letterDef>
+	</IncidentDef>
+
+</Defs>
