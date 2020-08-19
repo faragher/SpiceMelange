@@ -4,15 +4,19 @@
     <packageId>BetweenTheBorders.SpiceMelange</packageId>
 	<supportedVersions>
 		<li>1.1</li>
+		<li>1.2</li>
 	</supportedVersions>
 	<description>
+
+v1.2.1 - Removed autoclave due to continued problems; recipe moved to drug lab.
+
 Spice blows, harvesting, and refining.\n\n
 
 This is a testing release, but should be playable as-is. There has been no balance pass, and there is no promise Spice won't be too common or too rare.\n\n
 
 Current benefits include psychic power bonues at higher levels, and until I figure out how much is reliant on Royalty, it is listed as a dependency.\n\n
 
-Spice blows occur randomly, and the pre-spice mass must be dried either in an autoclave (same tech and image as the vanilla drug lab) or in a temperature of above 25C. Effects of withdrawal are not well tailored. It will take many doses to get to higher status effects.\n\n
+Spice blows occur randomly, and the pre-spice mass must be dried either in a drug lab or in a temperature of above 25C. Effects of withdrawal are not well tailored. It will take many doses to get to higher status effects.\n\n
 
 Current effects include increased stats, psychic powers, immunity to common diseases, and cosmetic bluing of the eyes. These kick in at different levels of severity.\n\n
 
