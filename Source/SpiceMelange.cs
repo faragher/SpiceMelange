@@ -89,12 +89,9 @@ namespace BTBSpiceMelange
 		{
 			try
 			{
-				for (int i = 0; i < this.parent.stackCount; i++)
-				{
-					Thing thing = ThingMaker.MakeThing(M_DefOf.SpiceMelange, null);
-					thing.stackCount = this.parent.stackCount;
-					GenPlace.TryPlaceThing(thing, this.parent.Position, this.parent.Map, ThingPlaceMode.Near, null, null, default(Rot4));
-				}
+				Thing thing = ThingMaker.MakeThing(M_DefOf.SpiceMelange, null);
+				thing.stackCount = this.parent.stackCount;
+				GenPlace.TryPlaceThing(thing, this.parent.Position, this.parent.Map, ThingPlaceMode.Near, null, null, default(Rot4));
 			}
 			finally
 			{
